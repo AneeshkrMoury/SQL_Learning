@@ -17,3 +17,54 @@ SELECT CONCAT(CITY, ' ', LENGTH(CITY)) FROM STATION
 ORDER BY LENGTH(CITY) ASC, CITY ASC LIMIT 1;
 SELECT CONCAT(CITY, ' ', LENGTH(CITY)) FROM STATION
 ORDER BY LENGTH(CITY) DESC, CITY DESC LIMIT 1;
+
+--6: Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+SELECT DISTINCT(CITY) FROM STATION 
+WHERE CITY LIKE "a%" 
+OR CITY LIKE "e%" 
+OR CITY LIKE "i%" 
+OR CITY LIKE "o%" 
+OR CITY LIKE "u%";
+
+--7: Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+SELECT DISTINCT(CITY) FROM STATION 
+WHERE CITY LIKE "%a" 
+OR CITY LIKE "%e" 
+OR CITY LIKE "%i" 
+OR CITY LIKE "%o" 
+OR CITY LIKE "%u";
+
+--8: Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+SELECT DISTINCT(CITY) FROM STATION 
+WHERE (CITY LIKE "%a" OR CITY LIKE "%e" OR CITY LIKE "%i" OR CITY LIKE "%o" OR CITY LIKE "%u")
+AND (CITY LIKE "a%" OR CITY LIKE "e%" OR CITY LIKE "i%" OR CITY LIKE "o%" OR CITY LIKE "u%");
+
+--9: Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT(CITY) FROM STATION 
+WHERE CITY NOT LIKE "A%"
+AND CITY NOT LIKE "E%" 
+AND CITY NOT LIKE "I%" 
+AND CITY NOT LIKE "O%" 
+AND CITY NOT LIKE "U%";
+
+--10: Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT(CITY) FROM STATION 
+WHERE CITY NOT LIKE "%a" 
+AND CITY NOT LIKE "%e" 
+AND CITY NOT LIKE "%i" 
+AND CITY NOT LIKE "%o" 
+AND CITY NOT LIKE "%u";
+
+--11: Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT(CITY) FROM STATION 
+WHERE (CITY NOT LIKE "%a" 
+AND CITY NOT LIKE "%e" 
+AND CITY NOT LIKE "%i" 
+AND CITY NOT LIKE "%o" 
+AND CITY NOT LIKE "%u")
+OR (CITY NOT LIKE "a%" 
+AND CITY NOT LIKE "e%" 
+AND CITY NOT LIKE "i%" 
+AND CITY NOT LIKE "o%" 
+AND CITY NOT LIKE "u%");
+
